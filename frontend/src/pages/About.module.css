@@ -1,0 +1,74 @@
+.main {
+  padding: 3rem 0 5rem;
+  min-height: calc(100vh - 60px);
+}
+
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+
+.tagline {
+  font-size: 0.875rem;
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.heading {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.6rem;
+}
+
+.body {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.85;
+}
+
+.link {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+}
+
+.disclaimer {
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.7;
+  padding: 0.75rem 1rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.back {
+  font-size: 0.85rem;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.back:hover {
+  text-decoration: underline;
+}

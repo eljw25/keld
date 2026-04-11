@@ -1,0 +1,51 @@
+.main {
+  padding: 2.5rem 0 4rem;
+  min-height: calc(100vh - 60px);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Tab row */
+.tabs {
+  display: flex;
+  gap: 0.25rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0.75rem;
+}
+
+.tab {
+  padding: 0.6rem 1.1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--muted);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color 0.15s, border-color 0.15s;
+  font-family: var(--font);
+}
+
+.tab:hover {
+  color: var(--text);
+}
+
+.tab.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.tabDesc {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 1.75rem;
+  padding-left: 0.25rem;
+}
+
+.content {
+  width: 100%;
+}

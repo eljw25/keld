@@ -1,0 +1,22 @@
+// App.jsx — Root component
+// Sets up client-side routing between Home (/) and About (/about)
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Nav from './components/Nav'
+import Home from './pages/Home'
+import About from './pages/About'
+import './index.css'
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </BrowserRouter>
+  )
+}
+
+export default App
