@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 from dictionary import lookup_term, lookup_court
 from mangum import Mangum
 import os
+import re
 
 load_dotenv()
 
@@ -21,25 +22,19 @@ app.add_middleware(
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 
-# ── Request models ──────────────────────────────────────────
 class TermRequest(BaseModel):
     term: str
 
 
 class DocumentRequest(BaseModel):
     text: str
-    language: str = "en"  # "en" or "ko" (UI language, not content)
 
 
-# ── Term lookup endpoint ─────────────────────────────────────
 @app.post("/translate/term")
 async def translate_term(req: TermRequest):
     term = req.term.strip()
-
-    # 1. Check dictionary first
     dictionary_result = lookup_term(term)
 
-    # 2. Always get AI result for comparison
     try:
         system_prompt = (
             "You are a Korean legal terminology expert specializing in criminal law. "
@@ -57,7 +52,7 @@ async def translate_term(req: TermRequest):
             temperature=0.1,
         )
         ai_result = response.choices[0].message.content.strip()
-    except Exception as e:
+    except Exception:
         ai_result = None
 
     return {
@@ -68,7 +63,6 @@ async def translate_term(req: TermRequest):
     }
 
 
-# ── Document translation endpoint ────────────────────────────
 @app.post("/translate/document")
 async def translate_document(req: DocumentRequest):
     text = req.text.strip()
@@ -97,12 +91,7 @@ async def translate_document(req: DocumentRequest):
         )
 
         translated = response.choices[0].message.content.strip()
-
-        # Flag uncertain terms
-        uncertain_terms = []
-        import re
-        matches = re.findall(r'\[UNCERTAIN: (.*?)\]', translated)
-        uncertain_terms = matches
+        uncertain_terms = re.findall(r'\[UNCERTAIN: (.*?)\]', translated)
 
         return {
             "original": text,
@@ -114,11 +103,9 @@ async def translate_document(req: DocumentRequest):
         return {"error": str(e)}
 
 
-# ── Health check ─────────────────────────────────────────────
 @app.get("/health")
 async def health():
     return {"status": "ok"}
 
 
-# ── AWS Lambda handler ───────────────────────────────────────
 handler = Mangum(app)

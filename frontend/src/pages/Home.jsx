@@ -1,6 +1,3 @@
-// Home.jsx — Main page with two tabs: Document and Term Reference
-// Users can toggle between translating a full document or looking up a single term
-
 import { useState } from 'react'
 import DocumentTab from '../components/DocumentTab'
 import TermTab from '../components/TermTab'
@@ -20,14 +17,12 @@ const TABS = [
 ]
 
 function Home() {
-  // Track which tab is active
   const [activeTab, setActiveTab] = useState('document')
 
   return (
     <main className={styles.main}>
       <div className={styles.container}>
 
-        {/* Tab switcher */}
         <div className={styles.tabs}>
           {TABS.map(tab => (
             <button
@@ -40,12 +35,10 @@ function Home() {
           ))}
         </div>
 
-        {/* Active tab description */}
         <p className={styles.tabDesc}>
           {TABS.find(t => t.id === activeTab)?.desc}
         </p>
 
-        {/* Render the active tab */}
         <div className={styles.content}>
           {activeTab === 'document' ? <DocumentTab /> : <TermTab />}
         </div>

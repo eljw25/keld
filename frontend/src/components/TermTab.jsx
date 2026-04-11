@@ -1,19 +1,13 @@
-// TermTab.jsx — Single term lookup tab
-// User types a Korean legal term → gets Dictionary result + AI result side by side
-// Dictionary result = fast, deterministic, from our curated list
-// AI result = GPT-3.5-turbo, handles terms not in our dictionary
-
 import { useState } from 'react'
 import { translateTerm } from '../api'
 import styles from './TermTab.module.css'
 
 function TermTab() {
-  const [input, setInput]     = useState('')      // Korean term the user typed
-  const [result, setResult]   = useState(null)    // Result from backend
-  const [loading, setLoading] = useState(false)   // Show spinner
-  const [error, setError]     = useState(null)    // Error message
+  const [input, setInput]     = useState('')
+  const [result, setResult]   = useState(null)
+  const [loading, setLoading] = useState(false)
+  const [error, setError]     = useState(null)
 
-  // Called on form submit or Enter key
   async function handleLookup(e) {
     e.preventDefault()
     if (!input.trim()) return
@@ -31,7 +25,6 @@ function TermTab() {
     }
   }
 
-  // Copy text to clipboard helper
   function copy(text) {
     navigator.clipboard.writeText(text)
   }
@@ -39,7 +32,6 @@ function TermTab() {
   return (
     <div className={styles.wrapper}>
 
-      {/* Search input */}
       <form className={styles.searchRow} onSubmit={handleLookup}>
         <input
           className={styles.input}
@@ -60,11 +52,9 @@ function TermTab() {
 
       {error && <p className={styles.error}>{error}</p>}
 
-      {/* Results — two panels side by side */}
       {result && (
         <div className={styles.results}>
 
-          {/* Dictionary result */}
           <div className={styles.resultCard}>
             <div className={styles.cardHeader}>
               <span className={styles.cardLabel}>Dictionary</span>
@@ -91,7 +81,6 @@ function TermTab() {
             </p>
           </div>
 
-          {/* AI result */}
           <div className={styles.resultCard}>
             <div className={styles.cardHeader}>
               <span className={styles.cardLabel}>AI Translation</span>
@@ -117,7 +106,6 @@ function TermTab() {
         </div>
       )}
 
-      {/* Disclaimer */}
       <p className={styles.disclaimer}>
         For reference only. Verify translations before official use.
       </p>

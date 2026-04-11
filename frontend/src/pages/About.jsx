@@ -1,6 +1,3 @@
-// About.jsx — About page
-// Explains what KELD is, why it was built, and who built it
-
 import { Link } from 'react-router-dom'
 import styles from './About.module.css'
 
@@ -9,7 +6,6 @@ function About() {
     <main className={styles.main}>
       <div className={styles.container}>
 
-        {/* What is KELD */}
         <section className={styles.section}>
           <h1 className={styles.title}>About KELD</h1>
           <p className={styles.tagline}>Korean-English Legal Dictionary</p>
@@ -24,7 +20,6 @@ function About() {
 
         <div className={styles.divider} />
 
-        {/* Why it was built */}
         <section className={styles.section}>
           <h2 className={styles.heading}>Why it was built</h2>
           <p className={styles.body}>
@@ -39,7 +34,6 @@ function About() {
 
         <div className={styles.divider} />
 
-        {/* Who built it */}
         <section className={styles.section}>
           <h2 className={styles.heading}>Built by</h2>
           <p className={styles.body}>
@@ -57,7 +51,6 @@ function About() {
 
         <div className={styles.divider} />
 
-        {/* Disclaimer */}
         <p className={styles.disclaimer}>
           KELD is intended for reference use only. Translations should be verified
           by a qualified legal professional before use in any official context.
