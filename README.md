@@ -1,6 +1,6 @@
 # KELD — Korean-English Legal Dictionary
 
-A translation tool for Korean legal documents. Combines a curated dictionary of 300+ verified legal terms with GPT-3.5-turbo for terms outside the dictionary.
+A translation tool for Korean legal documents. Combines a curated dictionary of 160+ verified legal terms with GPT-3.5-turbo for terms outside the dictionary.
 
 **Live:** https://keld.vercel.app
 
@@ -43,6 +43,4 @@ Create `frontend/.env`:
 VITE_API_URL=http://localhost:8000
 ```
 
-## License
-
-MIT
+More about this project: [Portfolio](https://jwericlee.vercel.app)
