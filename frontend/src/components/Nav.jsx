@@ -11,7 +11,7 @@ function Nav() {
         </Link>
 
         <div className={styles.links}>
-          <Link to="/about" className={styles.link}>About</Link>
+          <Link to="/about" className={styles.link}>About KELD</Link>
         </div>
       </div>
     </nav>
