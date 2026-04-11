@@ -38,6 +38,11 @@ npm install
 npm run dev
 ```
 
+Create `backend/.env`:
+```
+OPENAI_API_KEY=your_key_here
+```
+
 Create `frontend/.env`:
 ```
 VITE_API_URL=http://localhost:8000
