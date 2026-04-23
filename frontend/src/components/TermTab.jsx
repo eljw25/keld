@@ -57,7 +57,7 @@ function TermTab() {
 
           <div className={styles.resultCard}>
             <div className={styles.cardHeader}>
-              <span className={styles.cardLabel}>Dictionary</span>
+              <span className={styles.cardLabel}>Verified Dictionary</span>
               <span className={styles.cardBadge}>
                 {result.dictionary ? 'Found' : 'Not in dictionary'}
               </span>
@@ -77,7 +77,7 @@ function TermTab() {
               )}
             </div>
             <p className={styles.cardNote}>
-              Curated from verified Korean legal sources. Deterministic.
+              Curated from verified Korean legal sources.
             </p>
           </div>
 

@@ -12,7 +12,7 @@ const TABS = [
   {
     id: 'term',
     label: 'Term Reference',
-    desc: 'Look up a single Korean legal term — dictionary result vs AI side by side'
+    desc: 'Look up a Korean legal term — dictionary result vs AI side by side'
   },
 ]
 
