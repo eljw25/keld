@@ -7,10 +7,10 @@ const SAMPLE_TEXT = `피의자는 2023년 3월 15일 서울중앙지방법원에
 추가 혐의: 업무방해.`
 
 function DocumentTab() {
-  const [input, setInput]     = useState('')
-  const [result, setResult]   = useState(null)
+  const [input, setInput] = useState('')
+  const [result, setResult] = useState(null)
   const [loading, setLoading] = useState(false)
-  const [error, setError]     = useState(null)
+  const [error, setError] = useState(null)
 
   async function handleTranslate() {
     if (!input.trim()) return
@@ -22,7 +22,7 @@ function DocumentTab() {
       const data = await translateDocument(input)
       if (data.error) throw new Error(data.error)
       setResult(data)
-    } catch (err) {
+    } catch {
       setError('Translation failed. Please check your connection and try again.')
     } finally {
       setLoading(false)

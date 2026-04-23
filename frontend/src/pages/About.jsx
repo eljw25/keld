@@ -26,7 +26,7 @@ function About() {
             Eric Lee, CS student at the University of Maryland and former KATUSA Sergeant.
           </p>
           <a
-            href="https://jwericlee.vercel.app"
+            href="https://jwericlee.com"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.link}

@@ -5,7 +5,6 @@
   max-width: 900px;
 }
 
-/* Search row */
 .searchRow {
   display: flex;
   gap: 0.75rem;
@@ -48,13 +47,11 @@
   cursor: not-allowed;
 }
 
-/* Error */
 .error {
   color: var(--uncertain);
   font-size: 0.875rem;
 }
 
-/* Two result cards side by side */
 .results {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -140,7 +137,6 @@
   background: var(--bg);
 }
 
-/* Disclaimer */
 .disclaimer {
   font-size: 0.72rem;
   color: var(--muted);

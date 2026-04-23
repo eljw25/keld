@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from openai import OpenAI
 from dotenv import load_dotenv
-from dictionary import lookup_term, lookup_court
+from dictionary import lookup_term
 from mangum import Mangum
 import os
 import re
@@ -35,25 +35,27 @@ async def translate_term(req: TermRequest):
     term = req.term.strip()
     dictionary_result = lookup_term(term)
 
-    try:
-        system_prompt = (
-            "You are a Korean legal terminology expert specializing in criminal law. "
-            "Translate the given Korean legal term to English accurately. "
-            "Preserve the legal meaning precisely. "
-            "Return only the English translation, nothing else."
-        )
-        response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
-            messages=[
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": f"Translate this Korean legal term: {term}"},
-            ],
-            max_tokens=150,
-            temperature=0.1,
-        )
-        ai_result = response.choices[0].message.content.strip()
-    except Exception:
-        ai_result = None
+    ai_result = None
+    if not dictionary_result:
+        try:
+            system_prompt = (
+                "You are a Korean legal terminology expert specializing in criminal law. "
+                "Translate the given Korean legal term to English accurately. "
+                "Preserve the legal meaning precisely. "
+                "Return only the English translation, nothing else."
+            )
+            response = client.chat.completions.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": f"Translate this Korean legal term: {term}"},
+                ],
+                max_tokens=150,
+                temperature=0.1,
+            )
+            ai_result = response.choices[0].message.content.strip()
+        except Exception:
+            ai_result = None
 
     return {
         "term": term,

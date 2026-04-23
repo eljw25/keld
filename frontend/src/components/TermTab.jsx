@@ -3,10 +3,10 @@ import { translateTerm } from '../api'
 import styles from './TermTab.module.css'
 
 function TermTab() {
-  const [input, setInput]     = useState('')
-  const [result, setResult]   = useState(null)
+  const [input, setInput] = useState('')
+  const [result, setResult] = useState(null)
   const [loading, setLoading] = useState(false)
-  const [error, setError]     = useState(null)
+  const [error, setError] = useState(null)
 
   async function handleLookup(e) {
     e.preventDefault()
@@ -18,7 +18,7 @@ function TermTab() {
     try {
       const data = await translateTerm(input)
       setResult(data)
-    } catch (err) {
+    } catch {
       setError('Lookup failed. Please check your connection and try again.')
     } finally {
       setLoading(false)
@@ -84,7 +84,7 @@ function TermTab() {
           <div className={styles.resultCard}>
             <div className={styles.cardHeader}>
               <span className={styles.cardLabel}>AI Translation</span>
-              <span className={styles.cardBadge}>GPT-3.5</span>
+              <span className={styles.cardBadge}>OpenAI</span>
             </div>
             <div className={styles.cardBody}>
               {result.ai ? (

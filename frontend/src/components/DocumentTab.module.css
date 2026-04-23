@@ -4,7 +4,6 @@
   gap: 1.5rem;
 }
 
-/* Panel shared styles */
 .panel {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -59,7 +58,6 @@
   background: var(--accent-light);
 }
 
-/* Textarea */
 .textarea {
   flex: 1;
   border: none;
@@ -72,7 +70,6 @@
   min-height: 300px;
 }
 
-/* Translate button row */
 .actions {
   padding: 0.75rem 1rem;
   border-top: 1px solid var(--border);
@@ -98,7 +95,6 @@
   cursor: not-allowed;
 }
 
-/* Output area */
 .output {
   flex: 1;
   padding: 1rem;
@@ -113,7 +109,6 @@
   font-style: italic;
 }
 
-/* Loading */
 .loading {
   display: flex;
   align-items: center;
@@ -136,19 +131,16 @@
   to { transform: rotate(360deg); }
 }
 
-/* Error */
 .error {
   color: var(--uncertain);
   font-size: 0.875rem;
 }
 
-/* Translation output */
 .translationText {
   white-space: pre-wrap;
   line-height: 1.8;
 }
 
-/* Uncertain term highlight */
 .uncertain {
   background: var(--uncertain-bg);
   color: var(--uncertain);
@@ -157,7 +149,6 @@
   font-style: normal;
 }
 
-/* Uncertain terms list */
 .uncertainBox {
   margin-top: 1.25rem;
   padding: 0.75rem 1rem;
@@ -182,7 +173,6 @@
   margin-top: 0.2rem;
 }
 
-/* Disclaimer */
 .disclaimer {
   padding: 0.6rem 1rem;
   border-top: 1px solid var(--border);

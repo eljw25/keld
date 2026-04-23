@@ -13,7 +13,7 @@ function App() {
         <Route path="/about" element={<About />} />
       </Routes>
       <footer style={{ textAlign: 'center', padding: '2rem', fontSize: '0.8rem', color: 'var(--muted)', borderTop: '1px solid var(--border)' }}>
-        © 2026 Eric Lee
+        © 2026 Eric Lee. All Rights Reserved.
       </footer>
     </BrowserRouter>
   )

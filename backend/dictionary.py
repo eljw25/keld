@@ -132,36 +132,6 @@ LEGAL_DICT = {
     "흉기등협박": "Intimidation by Deadly Weapon",
 }
 
-COURT_DICT = {
-    "대법원": "Supreme Court",
-    "서울고등법원": "Seoul High Court",
-    "수원고등법원": "Suwon High Court",
-    "대전고등법원": "Daejeon High Court",
-    "대구고등법원": "Daegu High Court",
-    "부산고등법원": "Busan High Court",
-    "광주고등법원": "Gwangju High Court",
-    "서울중앙지방법원": "Seoul Central District Court",
-    "서울동부지방법원": "Seoul Dongbu District Court",
-    "서울남부지방법원": "Seoul Nambu District Court",
-    "서울북부지방법원": "Seoul Bukbu District Court",
-    "서울서부지방법원": "Seoul Seobu District Court",
-    "의정부지방법원": "Uijeongbu District Court",
-    "인천지방법원": "Incheon District Court",
-    "춘천지방법원": "Chuncheon District Court",
-    "수원지방법원": "Suwon District Court",
-    "대구지방법원": "Daegu District Court",
-    "부산지방법원": "Busan District Court",
-    "울산지방법원": "Ulsan District Court",
-    "창원지방법원": "Changwon District Court",
-    "광주지방법원": "Gwangju District Court",
-    "전주지방법원": "Jeonju District Court",
-    "제주지방법원": "Jeju District Court",
-    "대전지방법원": "Daejeon District Court",
-    "청주지방법원": "Cheongju District Court",
-    "육군보통군사법원": "General Military Court of the Army",
-}
-
-
 def lookup_term(term: str) -> str | None:
     term = term.strip()
     if term in LEGAL_DICT:
@@ -172,6 +142,3 @@ def lookup_term(term: str) -> str | None:
     return None
 
 
-def lookup_court(court: str) -> str | None:
-    court = court.strip()
-    return COURT_DICT.get(court, None)
